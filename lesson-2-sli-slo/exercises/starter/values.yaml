@@ -396,8 +396,9 @@ alertmanager:
     ## Image of Alertmanager
     ##
     image:
-      repository: quay.io/prometheus/alertmanager
-      tag: v0.22.2
+      registry: quay.io
+      repository: prometheus/alertmanager
+      tag: v0.25.0
       sha: ""
 
     ## If true then the user will be responsible to provide a secret with alertmanager configuration
@@ -1593,8 +1594,9 @@ prometheusOperator:
   ## Prometheus-config-reloader image to use for config and rule reloading
   ##
   prometheusConfigReloaderImage:
-    repository: quay.io/prometheus-operator/prometheus-config-reloader
-    tag: v0.49.0
+    registry: quay.io
+    repository: prometheus-operator/prometheus-config-reloader
+    tag: ""
     sha: ""
 
   ## Set the prometheus config reloader side-car CPU limit
@@ -1608,8 +1610,9 @@ prometheusOperator:
   ## Thanos side-car image when configured
   ##
   thanosImage:
-    repository: quay.io/thanos/thanos
-    tag: v0.17.2
+    registry: quay.io
+    repository: thanos/thanos
+    tag: v0.30.1
     sha: ""
 
   ## Set a Field Selector to filter watched secrets
@@ -1961,8 +1964,9 @@ prometheus:
     ## Image of Prometheus.
     ##
     image:
-      repository: quay.io/prometheus/prometheus
-      tag: v2.28.1
+      registry: quay.io
+      repository: prometheus/prometheus
+      tag: v2.41.0
       sha: ""
 
     ## Tolerations for use with node taints
