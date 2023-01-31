@@ -48,21 +48,21 @@
    )
  }
 
-#  resource "aws_eip" "nat" {
-#    count = local.nat_gateway_count
+ resource "aws_eip" "nat" {
+   count = local.nat_gateway_count
 
-#    vpc = true
+   vpc = true
 
-#    tags = merge(
-#      {
-#        "Name" = format(
-#          "%s-%s",
-#          var.name,
-#          element(var.azs, count.index),
-#        )
-#      }
-#    )
-#  }
+   tags = merge(
+     {
+       "Name" = format(
+         "%s-%s",
+         var.name,
+         element(var.azs, count.index),
+       )
+     }
+   )
+ }
 
  resource "aws_nat_gateway" "this" {
    count = local.nat_gateway_count
