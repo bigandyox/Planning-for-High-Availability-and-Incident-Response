@@ -1,13 +1,13 @@
 resource "kubernetes_namespace" "udacity" {
-   metadata {
-     name = local.name
-   }
-   depends_on = [
-     module.project_eks
-   ]
- }
+  metadata {
+    name = local.name
+  }
+  depends_on = [
+    module.project_eks
+  ]
+}
 
- resource "kubernetes_service" "prometheus-external" {
+resource "kubernetes_service" "prometheus-external" {
   metadata {
     name      = "prometheus-external"
     namespace = "monitoring"
@@ -18,7 +18,7 @@ resource "kubernetes_namespace" "udacity" {
   }
   spec {
     selector = {
-      "app.kubernetes.io/name"="prometheus"
+      "app.kubernetes.io/name" = "prometheus"
     }
 
     port {
@@ -33,7 +33,7 @@ resource "kubernetes_namespace" "udacity" {
     module.project_eks
   ]
 }
-  resource "kubernetes_service" "grafana-external" {
+resource "kubernetes_service" "grafana-external" {
   metadata {
     name      = "grafana-external"
     namespace = "monitoring"
@@ -44,7 +44,7 @@ resource "kubernetes_namespace" "udacity" {
   }
   spec {
     selector = {
-      "app.kubernetes.io/name"="grafana"
+      "app.kubernetes.io/name" = "grafana"
     }
 
     port {
