@@ -2,7 +2,7 @@
 
 | Category     | SLI | SLO                                                                                                         |
 |--------------|-----|-------------------------------------------------------------------------------------------------------------|
-| Availability |     | 99%                                                                                                         |
-| Latency      |     | 90% of requests below 100ms                                                                                 |
-| Error Budget |     | Error budget is defined at 20%. This means that 20% of the requests can fail and still be within the budget |
-| Throughput   |     | 5 RPS indicates the application is functioning                                                              |
+| Availability |     | 99% of requests resulting in a successful response over the last 5 minutes                                       |
+| Latency      |     | 90% of requests below 100ms over the last 5 minutes                                                                             |
+| Error Budget |     | Error budget no higher than 20% over the last 30 days  |
+| Throughput   |     | 5 requests per second (rps) indicates the application is functioning                                        |
