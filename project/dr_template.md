@@ -1,16 +1,16 @@
 # Infrastructure
 
 ## AWS Zones
-Primary: us-east-2
-Secondary: us-west-1
+**Primary**: us-east-2\
+**Secondary**: us-west-1
 
 ## Servers and Clusters
 
 ### Table 1.1 Summary
 | Asset      | Purpose           | Size                                                                   | Qty                                                             | DR                                                                                                           |
 |------------|-------------------|------------------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EC2 Cluster | HA Cluster | t3.medium | 3 | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
-| EKS Cluster | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
+| EC2 Instances | Ubuntu-Web VM | t3.micro | 3 | Deployed in Primary and Secondary AWS Zones |
+| EKS Cluster | Brief description | t3.medium | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 | Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 | Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 
