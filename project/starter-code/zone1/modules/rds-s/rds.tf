@@ -2,7 +2,7 @@ variable "primary_db_cluster_arn" {}
 
 resource "aws_rds_cluster_parameter_group" "cluster_pg-s" {
   name   = "udacity-pg-s"
-  family = "aurora5.6"
+  family = "aurora-mysql5.7"
 
   parameter {
     name         = "binlog_format"
@@ -23,13 +23,16 @@ resource "aws_db_subnet_group" "udacity_db_subnet_group" {
 }
 
 resource "aws_rds_cluster" "udacity_cluster-s" {
+  allow_major_version_upgrade     = true
+  apply_immediately               = true
   cluster_identifier              = "udacity-db-cluster-s"
   availability_zones              = ["us-west-1b", "us-west-1c"]
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.cluster_pg-s.name
   vpc_security_group_ids          = [aws_security_group.db_sg_2.id]
   db_subnet_group_name            = aws_db_subnet_group.udacity_db_subnet_group.name
   engine_mode                     = "provisioned"
-  engine_version                  = "aurora-mysql"
+  engine                          = "aurora-mysql"
+  engine_version                  = "5.7.mysql_aurora.2.11.2"
   skip_final_snapshot             = true
   storage_encrypted               = false
   backup_retention_period         = 5
@@ -43,6 +46,8 @@ resource "aws_rds_cluster_instance" "udacity_instance-s" {
   identifier           = "udacity-db-instance-${count.index}-s"
   cluster_identifier   = aws_rds_cluster.udacity_cluster-s.id
   instance_class       = "db.t2.small"
+  engine               = "aurora-mysql"
+  engine_version       = "5.7.mysql_aurora.2.11.2"
   db_subnet_group_name = aws_db_subnet_group.udacity_db_subnet_group.name
 }
 

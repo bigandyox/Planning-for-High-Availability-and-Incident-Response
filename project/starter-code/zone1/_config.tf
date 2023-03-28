@@ -15,6 +15,8 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias  = "usw1"
-  region = "us-west-1"
+  shared_config_files      = ["~/.aws/config"]
+  shared_credentials_files = ["~/.aws/credentials"]
+  alias                    = "usw1"
+  region                   = "us-west-1"
 }

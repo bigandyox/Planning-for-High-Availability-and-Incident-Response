@@ -7,7 +7,9 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-1"
+  shared_config_files      = ["~/.aws/config"]
+  shared_credentials_files = ["~/.aws/credentials"]
+  region                   = "us-west-1"
   #profile = "default"
 
   default_tags {
