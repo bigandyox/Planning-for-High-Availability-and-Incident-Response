@@ -9,7 +9,7 @@
 
 module "project_ec2" {
   source             = "./modules/ec2"
-  instance_count     = var.ec2_instance_count
+  ec2_instance_count = var.ec2_instance_count
   name               = local.name
   account            = data.aws_caller_identity.current.account_id
   aws_ami            = "ami-0944c26de5c4cdfbc"

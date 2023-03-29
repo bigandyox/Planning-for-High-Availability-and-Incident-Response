@@ -1,10 +1,12 @@
 module "project_rds_p" {
+  rds_instance_count = var.rds_instance_count
   source             = "./modules/rds-p"
   private_subnet_ids = module.vpc.private_subnet_ids
   vpc_id             = module.vpc.vpc_id
 }
 
 module "project_rds_s" {
+  rds_instance_count     = var.rds_instance_count
   source                 = "./modules/rds-s"
   primary_db_cluster_arn = module.project_rds_p.db_cluster_arn
   providers = {
