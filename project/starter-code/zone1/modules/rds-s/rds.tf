@@ -1,4 +1,5 @@
 variable "primary_db_cluster_arn" {}
+variable "primary_db_instance_arn" {}
 
 resource "aws_rds_cluster_parameter_group" "cluster_pg-s" {
   name   = "udacity-pg-s"
@@ -26,7 +27,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   allow_major_version_upgrade     = true
   apply_immediately               = true
   cluster_identifier              = "udacity-db-cluster-s"
-  availability_zones              = ["us-west-1b", "us-west-1c"]
+  availability_zones              = ["us-west-1a", "us-west-1c"]
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.cluster_pg-s.name
   vpc_security_group_ids          = [aws_security_group.db_sg_2.id]
   db_subnet_group_name            = aws_db_subnet_group.udacity_db_subnet_group.name
@@ -38,7 +39,7 @@ resource "aws_rds_cluster" "udacity_cluster-s" {
   backup_retention_period         = 5
   replication_source_identifier   = var.primary_db_cluster_arn
   source_region                   = "us-east-2"
-  depends_on                      = [aws_rds_cluster_parameter_group.cluster_pg-s]
+  depends_on                      = [var.primary_db_instance_arn]
 }
 
 resource "aws_rds_cluster_instance" "udacity_instance-s" {
