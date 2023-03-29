@@ -16,7 +16,6 @@
 | RDS Cluster | Managed relational database | db.t2.small | 2 | Deployed in Primary and Secondary AWS regions, across multiple availability zones |
 
 ### Descriptions
-More detailed descriptions of each asset identified above.
 
 **EC2:** EC2 instances host 'Ubuntu-Web' which is an HTTP web server for the e-commerce site. There are 3 instances in each AWS region for HA purposes.    \
 **EKS:** EKS Kubernetes cluster which hosts the kube-prometheus-stack for monitoring. Blackbox exporter is used to probe endpoints. There are 2 nodes per cluster in each AWS region for HA purposes.     \
