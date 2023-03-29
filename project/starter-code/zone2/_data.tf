@@ -19,9 +19,9 @@ data "aws_ami" "amazon_linux_2" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "udacity-tf-asimpson-west-sre"
+    bucket = "udacity-tf-asimpson-sre"
     key    = "terraform/terraform.tfstate"
-    region = "us-west-1"
+    region = "us-east-2"
   }
 
 
